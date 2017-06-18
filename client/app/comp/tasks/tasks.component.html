@@ -1,0 +1,20 @@
+<form class="well" (submit)="addZadanie($event)">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="tytul" name="tytul" class="form-control" placeholder="Wpisz zadanie... i nacisnij enter">
+      </div>
+</form>
+
+<div class="task-list">
+    <div *ngFor="let zad of zadania">
+        <div class="col-md-1">
+            <input type="checkbox" [checked]="zad.JestGotowe" (click)="updateStatus(zad)">
+        </div>
+        <div class="col-md-7">
+            {{zad.tytul}}
+        </div>
+        <div class="col-md-4">
+            <input type="button" (click)="deleteZad(zad._id)" value="Delete" class="btn btn-danger">
+        </div>
+        <br><br>
+    </div>
+</div>
